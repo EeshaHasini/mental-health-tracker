@@ -1,1 +1,1 @@
-# mental-health-tracker
+# Gamified Mental Health Tracker
