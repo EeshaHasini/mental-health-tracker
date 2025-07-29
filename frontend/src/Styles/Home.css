@@ -1,0 +1,138 @@
+
+ body {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, Winky Rough, -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(to right,  #a1b2fd,#C2E9FB );
+    background-repeat: repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.sidebar {
+    width: 300px;
+    background: linear-gradient(to right,  #A1C4FD,#C2E9FB );
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 8px;
+}
+
+.sidebar ul li a {
+font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: wavy;
+    color: black;
+font-size: larger;
+    font-weight: 1000;
+    display: block;
+    padding: 30px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #fffdfd;
+    border-radius: 5px;
+}
+
+.main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.top-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.login-avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 3px;
+    background: rgb(248, 242, 242);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.welcome {
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    background-color: rgb(235, 145, 175);
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.box {
+    background-color: #d3bde992;
+    border: 0px solid #f2eded;
+ box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+.emojis span {
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.boxCongo {
+      background-color: #d3bde992;
+    border: 0px solid #f2eded;
+ box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    box-sizing: 23;
+    border-radius: 10px;
+height: 150px;
+}
+.box read{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+
+textarea {
+    width: 100%;
+    height: 250px;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 0px solid #aaa;
+    resize: none;
+    background-color: #e5e9b5;
+}
+
+input[type='number'] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}
+.yes{
+    padding-left: 170px;
+
+}
