@@ -20,7 +20,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #70b3dd, #8ecde8, #c55eba);
+ 
+
   background-size: cover;
   background-position: center;
 }
@@ -78,14 +79,14 @@ body {
   background: #d889c7;
   font-size: 1rem;
   color: #080808;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.737);
   transition: 0.3s;
 }
 
 .login-form input:focus {
   outline: none;
   background-color: #73b9f3;
-  box-shadow: 0 0 0 2px #f0f2f7;
+  box-shadow: 0 0 0 2px #f0f2f700;
 }
 .password-wrapper {
   position: relative;
