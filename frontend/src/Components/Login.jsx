@@ -3,7 +3,7 @@ import React, { useState } from "react";
  import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import "../Styles/Login.css";
-
+import axios from "axios";
 
 export default function Login() {
 
@@ -22,20 +22,40 @@ export default function Login() {
     setUsername("");
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const handleLogin = async (e) => {
+  e.preventDefault();
 
-    console.log("Email : " + email);
-    console.log("Password: " + password);
-    console.log("Username : " + username);
+  if (!email || !password || (isSignup && !username)) {
+    alert("Please fill all the fields.");
+    return;
+  }
 
-    if (!email || !password || (isSignup && !username)) {
-      alert("Please fill all the fields.");
+  try {
+    if (isSignup) {
+      // REGISTER
+      const res = await axios.post("http://localhost:5000/api/auth/register", {
+        username,
+        email,
+        password,
+      });
+      alert("Sign up successful!");
     } else {
-      alert(`${isSignup ? "Sign up successful" : "Login successful"} ${username}`);
-      navigate('/home', { state: { username } }); // this redirects to the Home page
+      // LOGIN
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
+        email,
+        password,
+      });
+      alert("Login successful!");
     }
-  };
+
+    navigate("/home", { state: { username } });
+
+  } catch (error) {
+    console.error("Error:", error.response?.data || error.message);
+    alert("Something went wrong: " + (error.response?.data?.message || error.message));
+  }
+};
+
 
   return (
     <div className="login-page">
@@ -60,7 +80,7 @@ export default function Login() {
                 required
               />
             )}
-
+            
             <input
               type="email"
               placeholder="you@example.com"
