@@ -1,7 +1,10 @@
 require('dotenv').config();
 
 const cors = require("cors");
+<<<<<<< HEAD
 const app = express();
+=======
+>>>>>>> 0fe18f1 (Add mental-health-tracker folder after removing nested git)
 app.use(cors());
 
 const express = require('express');
@@ -10,6 +13,7 @@ const authRoutes = require('./routes/auth');
 const protectedRoutes = require('./routes/protected');
 const journalRoutes = require('./routes/journals');
 const moodRoutes = require('./routes/moods');
+<<<<<<< HEAD
 const cors = require("cors");
 
 <<<<<<< HEAD
@@ -23,6 +27,15 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
+=======
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(express.json());
+
+mongoose.connect(process.env.MONGODB_URI, {
+>>>>>>> 0fe18f1 (Add mental-health-tracker folder after removing nested git)
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
