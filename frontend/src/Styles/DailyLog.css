@@ -1,0 +1,60 @@
+
+.dailylog-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dailylog-heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.dailylog-textarea {
+  width: 90%;
+  max-width: 800px;
+  height: 250px;
+  padding: 20px;
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  resize: vertical;
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.dailylog-textarea:focus {
+  border-color: #5c6bc0;
+}
+
+.dailylog-save-btn {
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: #5c6bc0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dailylog-save-btn:hover {
+  background-color: #3f51b5;
+}
+
+.saved-message {
+  margin-top: 16px;
+  color: green;
+  font-size: 16px;
+  font-weight: 600;
+}
