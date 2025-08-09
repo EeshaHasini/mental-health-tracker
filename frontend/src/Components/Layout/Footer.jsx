@@ -1,13 +1,23 @@
-import React from 'react';
-// import '../Styles/Footer.css';
+import React from "react";
+import "../../Styles/Footer.css";
 
-function Footer() {
-    return (
-        <footer className="footer">
-            <p>About us | Privacy policy | Help | Contact support</p>
-            <p>© 2025 Your App Name</p>
-        </footer>
-    );
+export default function Footer() {
+  return (
+    <footer className="app-footer">
+      <div>
+        <span>About us</span>
+        <span> | </span>
+        <span>Privacy policy</span>
+        <span> | </span>
+        <span>Contact</span>
+        <span> | </span>
+        <span>Feedback</span>
+        <span> | </span>
+        <span>Support</span>
+      </div>
+      <div>
+        <span>© 2025 Mindful App - made by Akshitha</span>
+      </div>
+    </footer>
+  );
 }
-
-export default Footer;

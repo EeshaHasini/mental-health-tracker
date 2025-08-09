@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../../Styles/Profile.css';
+import Header from "../Layout/Header";
+import Footer from "../Layout/Footer";
 
 function Profile() {
   const location = useLocation();
@@ -13,6 +15,8 @@ function Profile() {
   };
 
   return (
+    <>
+    <Header/>
     <div className="profile-container">
       <h2>Your Profile</h2>
       <div className="profile-card">
@@ -26,6 +30,8 @@ function Profile() {
         <button className="profile-button">Tell Your Friends 💌</button>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 
