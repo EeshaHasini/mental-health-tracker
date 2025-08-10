@@ -1,8 +1,5 @@
 const bcrypt = require('bcrypt');
-<<<<<<< HEAD
 const jwt = require('jsonwebtoken');
-=======
->>>>>>> 0fe18f1 (Add mental-health-tracker folder after removing nested git)
 const User = require('../models/User');
 
 const register = async (req, res) => {
@@ -21,11 +18,6 @@ const register = async (req, res) => {
       email,
       password: hashedPassword,
     });
-<<<<<<< HEAD
-    
-    console.log("Saving user:", newUser);
-=======
->>>>>>> 0fe18f1 (Add mental-health-tracker folder after removing nested git)
 
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully' });
@@ -35,11 +27,6 @@ const register = async (req, res) => {
   }
 };
 
-<<<<<<< HEAD
-=======
-const jwt = require('jsonwebtoken');
-
->>>>>>> 0fe18f1 (Add mental-health-tracker folder after removing nested git)
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -56,7 +43,6 @@ const login = async (req, res) => {
       { expiresIn: '1d' }
     );
 
-<<<<<<< HEAD
     // 🔹 Send the username and email in the response
     res.status(200).json({
       message: 'Login successful',
@@ -70,18 +56,8 @@ const login = async (req, res) => {
 
   } catch (error) {
     console.error("🔴 Login error:", error);
-=======
-    res.status(200).json({ message: 'Login successful', token });
-
-  } catch (error) {
-    console.error("🔴 Login error:", error); // 🔍 Add this line!
->>>>>>> 0fe18f1 (Add mental-health-tracker folder after removing nested git)
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 };
 
-<<<<<<< HEAD
 module.exports = { register, login };
-=======
-module.exports = { register, login };
->>>>>>> 0fe18f1 (Add mental-health-tracker folder after removing nested git)
