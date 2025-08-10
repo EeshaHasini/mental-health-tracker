@@ -48,7 +48,7 @@ export default function Login() {
       alert("Login successful!");
     }
 
-    navigate("/home", { state: { username } });
+    navigate("/dashboard", { state: { username } });
 
   } catch (error) {
     console.error("Error:", error.response?.data || error.message);
