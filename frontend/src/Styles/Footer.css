@@ -1,0 +1,11 @@
+.app-footer {
+  margin-top: auto;
+  background: #e5f6fd;
+  padding: 18px 32px;
+  text-align: center;
+  color: #25608e;
+  font-size: 1rem;
+}
+.app-footer div:first-child span {
+  margin: 0 4px;
+}

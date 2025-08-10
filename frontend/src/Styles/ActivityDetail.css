@@ -1,0 +1,57 @@
+.activity-detail-container {
+  text-align: center;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.duration-selector button {
+  margin: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #a1b2fd;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.duration-selector button:hover {
+  background-color: #7f91e2;
+}
+
+.timer-section {
+  margin-top: 2rem;
+}
+
+.center-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-display {
+  font-size: 3rem;
+  font-weight: bold;
+  background-color: #e0e7ff;
+  padding: 1.5rem 3rem;
+  border-radius: 12px;
+  margin: 1rem 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pause-button {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  background-color: #ffcb77;
+  border: none;
+  border-radius: 10px;
+  color: #333;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pause-button:hover {
+  background-color: #f4b042;
+}

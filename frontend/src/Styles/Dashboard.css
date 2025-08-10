@@ -1,0 +1,106 @@
+/* Container holding the entire dashboard */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #33d9ef, #8bc2e4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.box dailylog {
+  display: flex;
+  justify-content: center;
+}
+
+/* Grid layout for main dashboard content */
+.dashboard-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 300px 200px 200px;
+  gap: 20px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* Common box style */
+.box {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Specific layout areas */
+.activity {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.chart {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.mood {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.quicknote {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.dailylog {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.convo {
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
+  text-align: center;
+}
+
+/* Responsive layout for tablets and smaller screens */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .activity {
+    grid-column: 1 / 3;
+  }
+
+  .chart, .mood, .quicknote, .dailylog {
+    grid-column: span 1;
+  }
+
+  .convo {
+    grid-column: 1 / 3;
+  }
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 600px) {
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .box {
+    font-size: 18px;
+    padding: 16px;
+  }
+}
