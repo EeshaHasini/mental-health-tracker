@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const cors = require("cors");
+const app = express();
 app.use(cors());
 
 const express = require('express');
@@ -10,7 +11,6 @@ const protectedRoutes = require('./routes/protected');
 const journalRoutes = require('./routes/journals');
 const moodRoutes = require('./routes/moods');
 
-const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
