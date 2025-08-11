@@ -1,14 +1,11 @@
-
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import "../../Styles/Login.css";
-import axios from "axios";
+import api from "../ServicesJS/api"; // ✅ use shared axios instance
 
 export default function Login() {
-
-  const [isSignup, setIsSignup] = useState(true); // toggle between Sign Up and Log In
-  const [showPassword, setShowPassword] = useState(false); // toggle password visibility
+  const [isSignup, setIsSignup] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -16,45 +13,51 @@ export default function Login() {
 
   const toggleForm = () => {
     setIsSignup(!isSignup);
-    // reset fields when switching
     setEmail("");
     setPassword("");
     setUsername("");
   };
 
   const handleLogin = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!email || !password || (isSignup && !username)) {
-    alert("Please fill all the fields.");
-    return;
-  }
-
-  try {
-    if (isSignup) {
-      // REGISTER
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
-        username,
-        email,
-        password,
-      });
-      alert("Sign up successful!");
-    } else {
-      // LOGIN
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
-        email,
-        password,
-      });
-      alert("Login successful!");
+    if (!email || !password || (isSignup && !username)) {
+      alert("Please fill all the fields.");
+      return;
     }
 
-    navigate("/home", { state: { username } });
+    try {
+      let res;
+      if (isSignup) {
+        // REGISTER
+        res = await api.post("/auth/register", { username, email, password });
+        alert(res.data?.message || "Sign up successful!");
+      } else {
+        // LOGIN
+        res = await api.post("/auth/login", { email, password });
+        alert(res.data?.message || "Login successful!");
+      }
 
-  } catch (error) {
-    console.error("Error:", error.response?.data || error.message);
-    alert("Something went wrong: " + (error.response?.data?.message || error.message));
-  }
-};
+      // ✅ Store token if backend returns one
+      if (res.data?.token) {
+        localStorage.setItem("token", res.data.token);
+      }
+
+      // ✅ Get username either from signup or from backend login response
+      const userNameToPass = isSignup
+        ? username
+        : res.data?.username || "";
+
+      navigate("/dashboard", { state: { username: userNameToPass } });
+
+    } catch (error) {
+      console.error("Error:", error.response?.data || error.message);
+      alert(
+        error.response?.data?.message ||
+        "Something went wrong. Please try again."
+      );
+    }
+  };
 
   return (
     <div
