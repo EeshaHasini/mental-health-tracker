@@ -21,3 +21,14 @@
   gap: 24px;
   justify-content: center;
 }
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .activity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .activity-title {
+    font-size: 18px;
+  }
+}

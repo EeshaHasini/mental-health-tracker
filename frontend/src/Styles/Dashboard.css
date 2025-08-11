@@ -3,8 +3,12 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #e0f7fa, #fff);
+  background: linear-gradient(to bottom right, #33d9ef, #8bc2e4);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.box dailylog {
+  display: flex;
+  justify-content: center;
 }
 
 /* Grid layout for main dashboard content */

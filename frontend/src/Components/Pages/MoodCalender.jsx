@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../Styles/MoodCalendar.css';
+import Header from "../../Components/Layout/Header";
+import Footer from "../../Components/Layout/Footer";
 
 function MoodCalendar() {
   const [moodData, setMoodData] = useState({});
@@ -40,12 +42,16 @@ function MoodCalendar() {
   };
 
   return (
-    <div className="mood-calendar">
-      <h2>🗓️ Your Mood Calendar</h2>
-      <div className="calendar-grid">
-        {generateCalendar()}
+    <>
+     <Header/>
+      <div className="mood-calendar">
+        <h2>🗓️ Your Mood Calendar</h2>
+        <div className="calendar-grid">
+          {generateCalendar()}
+        </div>
       </div>
-    </div>
+      <Footer/>
+    </>
   );
 }
 
