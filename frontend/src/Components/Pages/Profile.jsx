@@ -30,7 +30,7 @@ function Profile() {
         <button className="profile-button">Tell Your Friends 💌</button>
       </div>
     </div>
-    <Footer/>
+    <Footer/> 
     </>
   );
 }

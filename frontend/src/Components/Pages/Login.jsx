@@ -63,7 +63,7 @@ export default function Login() {
     <div
       className="login-page"
       style={{
-        backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/bg.png'})`,
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/loginbg.png'})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh',
@@ -72,7 +72,9 @@ export default function Login() {
       <div className="login-box">
         {/* left form */}
         <div className="login-form">
-          <p className="subtitle">Welcome to EkaMind ✨</p>
+          <b>
+          <p className="subtitle">   <b>Welcome to EkaMind ✨</b></p>
+          </b>
           <b>
             <p className="subtext">Track. Heal. Unite </p>
           </b>
@@ -112,7 +114,7 @@ export default function Login() {
                 className="toggle-pw"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {/* Show/hide icon or text here */}
+               
               </button>
             </div>
 
@@ -123,7 +125,7 @@ export default function Login() {
             </b>
           </form>
 
-          {/* Toggle message */}
+         
           <p className="toggle-link">
             {isSignup ? (
               <>
@@ -143,7 +145,7 @@ export default function Login() {
           </p>
         </div>
 
-        {/* right avatar */}
+       
         <div className="loginavatar">
           <img src="/assets/panda.png" alt="avatar" />
         </div>

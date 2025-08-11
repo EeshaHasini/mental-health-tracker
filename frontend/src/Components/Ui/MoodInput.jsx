@@ -18,7 +18,7 @@ function MoodInput({ onMoodSaved }) {
       setLoading(false);
     }
   };
-
+ 
   return (
     <div className="box mood">
       <h2>How was your mood today?</h2>
