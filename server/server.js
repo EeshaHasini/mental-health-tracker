@@ -8,6 +8,9 @@ const authRoutes = require('./routes/auth');
 const protectedRoutes = require('./routes/protected');
 const journalRoutes = require('./routes/journals');
 const moodRoutes = require('./routes/moods');
+const activityRoutes = require('./routes/activities');
+const quicknoteRoutes = require('./routes/quicknotes');
+const progressRoutes = require('./routes/progress');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,6 +18,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
@@ -33,6 +37,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api', protectedRoutes);
 app.use('/api/journals', journalRoutes);
 app.use('/api/moods', moodRoutes);
+app.use('/api/activities', activityRoutes);
+app.use('/api/quicknotes', quicknoteRoutes);
+app.use('/api/progress', progressRoutes);
 
 // Start server
 app.listen(PORT, () => {
