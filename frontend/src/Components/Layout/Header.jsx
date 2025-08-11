@@ -15,7 +15,7 @@ function Header({ username , email}) {
     <header className="app-header">
       <div className="left-section" onClick={handleProfileClick} style={{ cursor: 'pointer' }}>
         <img src="/assets/panda.png" alt="Profile" className="profile-icon" />
-        <span className="greeting">{ username}</span>
+        <span className="greeting">{username}</span>
       </div>
 
       <nav className="nav-links">

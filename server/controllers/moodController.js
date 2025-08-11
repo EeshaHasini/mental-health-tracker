@@ -1,3 +1,4 @@
+//MoodController.jsx
 const Mood = require('../models/Mood');
 
 const moodScore = {
@@ -100,8 +101,42 @@ const getMonthlyMoodEntries = async (req, res) => {
   }
 };
 
+const getWeeklyMoodEntries = async (req, res) => {
+  try {
+    const now = new Date();
+    const startOfWeek = new Date(now);
+    startOfWeek.setDate(now.getDate() - now.getDay()); // Sunday
+    startOfWeek.setHours(0, 0, 0, 0);
+
+    const moods = await Mood.find({
+      user: req.user.id,
+      timestamp: { $gte: startOfWeek },
+    });
+
+    const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    const dailyScores = weekDays.map((day, i) => {
+      const date = new Date(startOfWeek);
+      date.setDate(startOfWeek.getDate() + i);
+
+      const dayMoods = moods.filter(m => m.timestamp.getDay() === i);
+
+      const avg = dayMoods.length
+        ? dayMoods.reduce((sum, m) => sum + moodScore[m.mood], 0) / dayMoods.length
+        : 0;
+
+      return { day, moodValue: Number(avg.toFixed(2)) };
+    });
+
+    res.status(200).json(dailyScores);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error });
+  }
+};
+
 module.exports = {
   addMood,
   getTodayAverageMood,
-  getMonthlyMoodEntries, 
+  getMonthlyMoodEntries,
+  getWeeklyMoodEntries, // new export
 };

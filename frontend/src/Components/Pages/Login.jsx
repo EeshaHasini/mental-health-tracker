@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../Styles/Login.css";
-import api from "../ServicesJS/api"; // ✅ use shared axios instance
+import api from "../../ServicesJS/api"; // ✅ use shared axios instance
 
 export default function Login() {
   const [isSignup, setIsSignup] = useState(true);

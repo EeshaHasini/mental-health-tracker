@@ -1,3 +1,4 @@
+//journalController.js
 const Journal = require('../models/Journal');
 
 // 📌 Create a new journal entry

@@ -1,39 +1,49 @@
 import React, { useEffect, useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
+import {BarChart,Bar,XAxis,YAxis, Tooltip,CartesianGrid,ResponsiveContainer} from "recharts";
+import api from "../../ServicesJS/api"; // same axios instance
 
 export default function WeeklyMoodChart() {
   const [chartData, setChartData] = useState([]);
 
   const moodValues = {
-    "😁": 5,
-    "😊": 4,
-    "🙂": 3,
-    "😞": 2,
-    "😠": 1
+    delighted: 5,
+    happy: 4,
+    calm: 3,
+    sad: 2,
+    angry: 1
   };
 
   useEffect(() => {
-    const logs = JSON.parse(localStorage.getItem("moodLogs")) || {};
-    const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const fetchMoods = async () => {
+      try {
+        const { data } = await api.get("/moods/week"); // endpoint should return last 7 days
+        // Example expected data: [{ date: "2025-08-05", mood: "happy" }, ...]
 
-    const now = new Date();
-    const dayIndex = now.getDay();
-    const sunday = new Date(now);
-    sunday.setDate(now.getDate() - dayIndex);
+        const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const now = new Date();
+        const dayIndex = now.getDay();
+        const sunday = new Date(now);
+        sunday.setDate(now.getDate() - dayIndex);
 
-    const data = weekDays.map((day, i) => {
-      const dateObj = new Date(sunday);
-      dateObj.setDate(sunday.getDate() + i);
-      const dateKey = dateObj.toISOString().split("T")[0];
+        const formattedData = weekDays.map((day, i) => {
+          const dateObj = new Date(sunday);
+          dateObj.setDate(sunday.getDate() + i);
+          const dateKey = dateObj.toISOString().split("T")[0];
 
-      const mood = logs[dateKey];
-      return {
-        day,
-        moodValue: mood ? moodValues[mood] || 0 : 0
-      };
-    });
+          const entry = data.find((item) => item.date === dateKey);
+          return {
+            day,
+            moodValue: entry ? moodValues[entry.mood] || 0 : 0
+          };
+        });
 
-    setChartData(data);
+        setChartData(formattedData);
+      } catch (err) {
+        console.error("Failed to fetch moods:", err);
+      }
+    };
+
+    fetchMoods();
   }, []);
 
   return (
